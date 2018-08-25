@@ -1,0 +1,12 @@
+---
+applications:
+- name: c2c-php
+  path: .
+  buildpacks:
+    - php_buildpack
+  memory: 128M
+  instances: 1
+  env:
+    CF_STAGING_TIMEOUT: 15
+    CF_STARTUP_TIMEOUT: 15
+    TEST: php-1

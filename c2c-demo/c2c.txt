@@ -1,0 +1,8 @@
+cf add-network-policy SOURCE_APP --destination-app DESTINATION_APP --protocol (tcp | udp) --port RANGE
+
+cf add-network-policy c2c-demo --destination-app c2c-java --protocol tcp --port 8080
+cf add-network-policy c2c-demo --destination-app c2c-php --protocol tcp --port 8080
+
+cf create-route instances apps.internal --hostname c2c
+cf map-route c2c-java apps.internal --hostname c2c
+cf map-route c2c-php apps.internal --hostname c2c
